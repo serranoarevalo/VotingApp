@@ -127,7 +127,7 @@ describe('application logic', () => {
 						'28 Days Later': 2
 					})
 				}),
-				entries: List.of('Sunshine', 'Millions', '127 Hours');
+				entries: List.of('Sunshine', 'Millions', '127 Hours')
 			});
 
 			const nextState = next(state);
