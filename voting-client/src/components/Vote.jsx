@@ -1,6 +1,8 @@
 import React from 'react';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
+import reactMixin from 'react-mixin';
 
-export default class extends React.Component {
+export default class Vote extends React.Component {
 	getPair() {
 		return this.props.pair || [];
 	}
@@ -11,7 +13,8 @@ export default class extends React.Component {
 		return this.props.hasVoted === entry;
 	}
 	render() {
-		<div className="voting">
+		return (
+			<div className="voting">
 			{this.getPair().map(entry => 
 				<button key={entry}
 						disabled={this.isDisabled()}
@@ -21,7 +24,11 @@ export default class extends React.Component {
 					<div className="label">Voted</div> :
 					null
 				}
-			)}
-		</div>
+				</button>
+				)}
+			</div>
+		);
 	}
 }
+
+reactMixin(Vote.prototype, PureRenderMixin);

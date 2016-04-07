@@ -1,6 +1,8 @@
 import React from 'react';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
+import reactMixin from 'react-mixin';
 
-export default class extends React.Component {
+export default class Winner extends React.Component {
 	constructor(props){
 		super(props)
 	}
@@ -12,3 +14,5 @@ export default class extends React.Component {
 		)
 	}
 }
+
+reactMixin(Winner.prototype, PureRenderMixin);
