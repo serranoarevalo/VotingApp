@@ -3,8 +3,9 @@ import Winner from './Winner';
 import Vote from './Vote';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import reactMixin from 'react-mixin';
+import {connect} from 'react-redux';
 
-export default class Voting extends React.Component {
+export class Voting extends React.Component {
 	constructor(props){
 		super(props)
 	}
@@ -20,4 +21,15 @@ export default class Voting extends React.Component {
 	}
 };
 
+function mapStateToProps(state){
+	return {
+		pair: state.getIn(['vote', 'pair']),
+		winner: state.get('winner')
+	}
+}
+
+
 reactMixin(Voting.prototype, PureRenderMixin);
+
+
+export const VotingContainer = connect(mapStateToProps)(Voting);
