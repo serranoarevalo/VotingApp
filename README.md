@@ -1,2 +1,2 @@
 # VotingApp
-Voting app with Redux, React, and Immutable
+Voting app with Socket.io, Redux, React, and Immutable
